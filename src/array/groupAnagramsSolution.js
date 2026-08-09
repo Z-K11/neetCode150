@@ -17,3 +17,15 @@ function groupAnagrams(strs) {
   }
   return result;
 }
+
+function betterAnagramGroups(strs) {
+  let result = {};
+  for (let s of strs) {
+    let sortedStr = s.split('').sort().join('');
+    if (!result[sortedStr]) {
+      result[sortedStr] = [];
+    }
+    result[sortedStr].push(s);
+  }
+  return Object.values(result);
+}
